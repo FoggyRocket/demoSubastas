@@ -1,0 +1,19 @@
+
+
+<h3>Hola {{user.username}}</h3>
+
+
+
+<h4>Tus subastas</h4>
+<ul>
+{{#each auctions}}
+    <li> 
+        <p>{{title}}</p>
+        <div>
+            <span>Lider</span>
+        </div>
+        <a href="/auction/update/{{_id}}">Edit</a>
+        <a href="/auction/delete/{{_id}}">delete</a>
+    </li>
+{{/each}}
+</ul>

@@ -1,11 +1,13 @@
 const router = require("express").Router();
 const Bid = require("../models/Bid.model")// recuerda importamos el modelo que vayamos a utilizar
 const Auction = require("../models/Auction.model") // tambien utilizaremos esto
+const {isLoggedOut,isLoggedIn} = require("../utils/auth")
+
 /* POST bid create */
 //vamos a relizar nuestro pulls espero se diga a si jajajaja
 //como voy a utlizar mas de 2 promesas aninadas o nested? 
 // hare esto de forma async 
-router.post("/:id", async (req, res, next) => {
+router.post("/:id",isLoggedIn, async (req, res, next) => {
     try{
         //comenzamos destructurando
         const {id} = req.params
