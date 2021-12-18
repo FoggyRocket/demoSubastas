@@ -26,7 +26,7 @@ router.post("/:id", async (req, res, next) => {
             // mas elevada
             //recuerda vamos a actualizar van 3 paramaetros 
              const newAuction = await Auction.findByIdAndUpdate(id,{_lider : bid._id },{new:true})
-
+            //esto seri a todo lo que haremos para el bid
              res.redirect("/home")
         }
     }catch(error){
