@@ -1,0 +1,45 @@
+<form action="/auction/create" method="post" enctype="multipart/form-data">
+  <div class="uk-margin">
+    <label class="uk-form-label" for="title">title</label>
+    <input class="uk-input" type="text" name="title" />
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="">Initial Price</label>
+    <input class="uk-input" type="number" name="initial_price" />
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="">Currency</label>
+    <div class="uk-form-controls">
+      <select name="" id="form-horizontal-select" class="uk-select">
+        <option value="disabled">Select Currency</option>
+        <option value="MXN" selected="auction.currency==='MXN'">MXN</option>
+        <option value="USD" selected="auction.currency==='USD'">USD</option>
+      </select>
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="">Initial Date</label>
+    <input class="uk-input" type="datetime-local" name="initial_date" />
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="">End Date</label>
+    <input class="uk-input" type="datetime-local" name="end_date" />
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="images">Images</label>
+    <input class="uk-input" type="file" name="images" multiple />
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="address">Direction</label>
+    <input id="address" class="uk-input" type="text" name="address" />
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="lng">Long</label>
+    <input id="lng" class="uk-input" type="text" name="lng" />
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="lat">Latitude</label>
+    <input id="lat" class="uk-input" type="text" name="lat" />
+  </div>
+  <button class="uk-button uk-button-primary" type="submit">Create auction</button>
+</form>

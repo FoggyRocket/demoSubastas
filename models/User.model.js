@@ -1,16 +1,26 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema(
   {
     username: {
       type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+      unique: true,//<- Forma tradicional
+      required:[true,"Debes colocar "] //<-
     },
-    password: String,
+    password: {
+      type:String,
+      required:true
+    },
+    email:{
+      type:String,
+      required:true,
+    },
+    profile_pic:{
+      type:String,
+      default:"https://avatars.githubusercontent.com/u/29002976?v=4"
+    }
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
   }
 );

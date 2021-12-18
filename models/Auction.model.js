@@ -3,7 +3,7 @@ const { Schema, model } = mongoose;
 
 const auctionSchema = new Schema(
   {
-    author: {
+    _author: {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
@@ -12,7 +12,7 @@ const auctionSchema = new Schema(
       required: true,
       unique: true,
     },
-    lider: {
+    _lider: {
       type: Schema.Types.ObjectId,
       ref: "Bid",
     },
@@ -31,7 +31,7 @@ const auctionSchema = new Schema(
     },
     initial_price: {
       type: Number,
-      min: 100000,
+      min: 10,
       required: true,
     },
     location: {
