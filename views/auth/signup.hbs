@@ -1,17 +1,28 @@
-<form>
+<form action="/signup" method="POST">
 
   <div class="uk-margin">
     <div class="uk-inline">
       <span class="uk-form-icon" uk-icon="icon: user"></span>
-      <input class="uk-input" type="text" />
+      <input class="uk-input" type="text" name="email" placeholder="Corre electronico" />
+    </div>
+  </div>
+
+    <div class="uk-margin">
+    <div class="uk-inline">
+      <span class="uk-form-icon" uk-icon="icon: user"></span>
+      <input class="uk-input" type="text" name="username" placeholder="Nombre de usuario" />
     </div>
   </div>
 
   <div class="uk-margin">
     <div class="uk-inline">
       <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-      <input class="uk-input" type="text" />
+      <input class="uk-input" type="text" name="password" placeholder="********" />
     </div>
   </div>
-  <button class="uk-button uk-button-primary" type="submit">Create auction</button>
+  <button class="uk-button uk-button-primary" type="submit">Signup</button>
 </form>
+
+{{#if errorMessage}}
+  <p>{{errorMessage}}</p>
+{{/if}}

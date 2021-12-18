@@ -34,7 +34,15 @@ router.post("/signup", async (req, res, next) => {
             //localhost:4000/login
         res.redirect("/login")
     }catch(error){
-        next(error)
+        if (error instanceof mongoose.Error.ValidationError) {
+            res.status(500).render("auth/signup", { errorMessage: error.message });
+          } else if (error.code === 11000) {
+            res.status(500).render("auth/signup", {
+              errorMessage: "Ya fueron utilizados"
+            });
+          } else {
+            next(error);
+          }
     }
   });
   
@@ -64,7 +72,7 @@ router.post("/login", async (req, res, next) => {
         
         if(bcryptjs.compareSync(password,user.password)){
             req.session.user = user // estamos guardo al usuario que se acaba de loggear
-            res.redirect("/home")
+            res.redirect("/")
         }else{
             res.render("auth/login",{errorMessage:"El correo o la contraseña son erroneas " })//estoy mandando un error  a la vista
             return
