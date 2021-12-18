@@ -4,7 +4,7 @@ const bcryptjs = require("bcryptjs");
 
 /* GET signup page */
 router.get("/signup", (req, res, next) => {
-  res.render("aauth/signup");
+  res.render("auth/signup");
 });
 
 
