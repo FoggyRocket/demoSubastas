@@ -31,10 +31,10 @@ const index = require("./routes/index");
 const auth = require("./routes/auth.routes")
 //vamos a importar las rutas a utilizar
 const auction = require("./routes/auction.routes");
-const bif = require("./routes/bid.routes");
+const bid = require("./routes/bid.routes");
 app.use("/", index);
 app.use("/",auth); //completo sin prefijo
-app.use("/bid") // con un prefijo 
+app.use("/bid",bid) // con un prefijo 
 app.use("/auction",auction)// noten que agregue un prefix osea /auticion
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require("../models/User.model");
 const bcryptjs = require("bcryptjs");
+const {isLoggedOut,isLoggedIn} = require("../utils/auth")
 
 /* GET signup page */
 router.get("/signup", (req, res, next) => {
@@ -49,7 +50,7 @@ router.post("/signup", async (req, res, next) => {
 
   //LOGIN GET  forms Login
 
-router.get("/login", (req, res, next) => {
+router.get("/login",isLoggedOut, (req, res, next) => {
   res.render("auth/login");
 });
 
@@ -72,6 +73,7 @@ router.post("/login", async (req, res, next) => {
         
         if(bcryptjs.compareSync(password,user.password)){
             req.session.user = user // estamos guardo al usuario que se acaba de loggear
+            console.log("req.ses",req.session)
             res.redirect("/")
         }else{
             res.render("auth/login",{errorMessage:"El correo o la contraseña son erroneas " })//estoy mandando un error  a la vista
@@ -86,7 +88,7 @@ router.post("/login", async (req, res, next) => {
 
 
 
-router.get("/logout", (req, res, next) => {
+router.get("/logout",  (req, res, next) => {
     req.session.destroy();
     res.redirect("/login")
 });

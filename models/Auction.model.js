@@ -31,7 +31,7 @@ const auctionSchema = new Schema(
     },
     initial_price: {
       type: Number,
-      min: 100000,
+      min: 10,
       required: true,
     },
     location: {
